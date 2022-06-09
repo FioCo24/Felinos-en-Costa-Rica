@@ -1,0 +1,30 @@
+---
+title: "Felinos de Costa Rica"
+author: "Fiorella Cordero"
+date: '2022-06-09'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Preparativos
+```{r carga de paquetes}
+library(dplyr)
+library(sf)
+library(ggplot2)
+library(plotly)
+library(DT)
+```
+# Tabla
+```{r}
+# Visualización de datos de mtcars en formato tabular
+felinos %>%
+  select(species, evenDate, locality, stateProvince, decimalLongitude, decimalLatitude) %>%
+  datatable(options = list(
+    pageLength = 5,
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
+  ))
+```
+
